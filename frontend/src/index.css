@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --color-bg: #080b12;
+  --color-bg-secondary: #0f1420;
+  --color-surface: #151c2b;
+  --color-surface-hi: #1b2333;
+  --color-text: #f5f7fb;
+  --color-text-secondary: #a7b0c0;
+  --color-text-muted: #6b7486;
+  --color-accent: #7c8cff;
+  --color-accent-2: #9b8cff;
+  --color-line: rgba(255, 255, 255, 0.1);
+
+  --breakpoint-xs: 360px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #080b12;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-hi);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-28;
+  }
+
+  .eyebrow {
+    @apply text-xs sm:text-sm tracking-[0.2em] uppercase text-[var(--color-accent)] font-medium;
+  }
+
+  .h1-display {
+    font-family: var(--font-display);
+    @apply text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl font-medium tracking-tight text-[var(--color-text)];
+  }
+
+  .h2-display {
+    font-family: var(--font-display);
+    @apply text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[var(--color-text)];
+  }
+
+  .body-lg {
+    @apply text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed;
+  }
+
+  .glass {
+    background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--color-line);
+  }
+
+  .glass-strong {
+    background: color-mix(in srgb, var(--color-surface-hi) 78%, transparent);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--color-line);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-text)] text-[#0a0d16] px-6 py-3 text-sm font-semibold transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-line)] text-[var(--color-text)] px-6 py-3 text-sm font-semibold transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-white/5 active:scale-[0.98];
+  }
+
+  .card-border {
+    border: 1px solid var(--color-line);
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+#root {
+  overflow-x: clip;
+}
