@@ -15,17 +15,18 @@ export default function WhyUs() {
           viewport={viewportOnce}
           className="lg:col-span-5 relative"
         >
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden card-border bg-gradient-to-br from-[var(--color-surface)] via-[var(--color-bg-secondary)] to-[var(--color-bg)]">
-            <div className="absolute inset-0 opacity-40" style={{
-              backgroundImage: 'radial-gradient(circle at 70% 20%, var(--color-accent), transparent 55%)',
-            }} />
-            <div className="absolute inset-6 grid grid-cols-2 grid-rows-3 gap-3">
-              <div className="col-span-2 rounded-2xl glass-strong" />
-              <div className="rounded-2xl glass" />
-              <div className="rounded-2xl glass" />
-              <div className="col-span-2 rounded-2xl glass-strong" />
-            </div>
+          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden card-border">
+            {/* Owner photo */}
+            <img
+              src="/images/owner-founder.jpg.jpg"
+              alt="Founder of Unthought Creative"
+              className="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+            {/* Subtle gradient overlay at bottom for readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           </div>
+          {/* Floating badge — 360° Content system */}
           <div className="absolute -bottom-6 -right-6 glass-strong rounded-2xl px-5 py-4 shadow-xl hidden sm:block">
             <p className="text-2xl font-medium font-[var(--font-display)] text-[var(--color-text)]">
               360°

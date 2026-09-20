@@ -5,12 +5,12 @@ import { audiences } from '@/data/siteConfig'
 import { fadeUp, viewportOnce } from '@/lib/motion'
 
 const gradients = [
-  'from-orange-500/25 via-transparent to-transparent',
-  'from-[var(--color-accent)]/30 via-transparent to-transparent',
-  'from-pink-500/20 via-transparent to-transparent',
-  'from-emerald-500/20 via-transparent to-transparent',
-  'from-[var(--color-accent-2)]/25 via-transparent to-transparent',
-  'from-sky-500/20 via-transparent to-transparent',
+  'from-orange-500/70 via-black/40 to-black/60',
+  'from-[var(--color-accent)]/60 via-black/40 to-black/60',
+  'from-pink-500/60 via-black/40 to-black/60',
+  'from-emerald-500/60 via-black/40 to-black/60',
+  'from-[var(--color-accent-2)]/60 via-black/40 to-black/60',
+  'from-sky-500/60 via-black/40 to-black/60',
 ]
 
 export default function Audiences() {
@@ -32,34 +32,44 @@ export default function Audiences() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="group relative rounded-3xl overflow-hidden card-border bg-[var(--color-surface)] p-6 h-56 flex flex-col justify-between cursor-default transition-transform duration-500 hover:-translate-y-1"
+              className="group relative rounded-3xl overflow-hidden card-border bg-[var(--color-surface)] h-56 flex flex-col justify-between cursor-default transition-transform duration-500 hover:-translate-y-1"
             >
+              {/* Background photo */}
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              )}
+              {/* Dark gradient overlay — always shown, stronger on hover */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${gradients[i % gradients.length]} opacity-70 group-hover:opacity-100 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${gradients[i % gradients.length]} opacity-80 group-hover:opacity-90 transition-opacity duration-500`}
               />
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
                   backgroundImage:
-                    'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 60%)',
+                    'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06), transparent 60%)',
                 }}
               />
 
-              <div className="relative z-10 flex items-start justify-between">
-                <span className="text-[10px] tracking-[0.18em] uppercase text-[var(--color-text-muted)] font-medium">
+              <div className="relative z-10 flex items-start justify-between p-6">
+                <span className="text-[10px] tracking-[0.18em] uppercase text-white/70 font-medium">
                   {item.tag}
                 </span>
                 <ArrowUpRight
                   size={18}
-                  className="text-[var(--color-text-secondary)] transition-all duration-500 group-hover:text-[var(--color-accent)] group-hover:translate-x-1 group-hover:-translate-y-1"
+                  className="text-white/60 transition-all duration-500 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1"
                 />
               </div>
 
-              <div className="relative z-10">
-                <h3 className="text-xl font-medium text-[var(--color-text)] mb-2">
+              <div className="relative z-10 p-6">
+                <h3 className="text-xl font-medium text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                <p className="text-sm text-white/75 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -70,3 +80,4 @@ export default function Audiences() {
     </section>
   )
 }
+

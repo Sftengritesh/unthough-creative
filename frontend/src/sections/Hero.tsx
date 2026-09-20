@@ -112,16 +112,18 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="absolute top-6 left-0 w-[62%] aspect-[4/5] rounded-3xl glass-strong p-4 shadow-2xl"
             >
-              <div className="w-full h-full rounded-2xl bg-gradient-to-br from-[var(--color-accent)]/30 via-[var(--color-surface)] to-[var(--color-bg)] flex flex-col justify-between p-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold tracking-widest text-white/70">
-                    REEL · 00:24
+              <div className="w-full h-full rounded-2xl overflow-hidden relative">
+                <img
+                  src="/images/imagesowner-studio.jpg.jpg"
+                  alt="Unthought Creative — Owner at a content shoot"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                  <span className="text-[10px] font-semibold tracking-widest text-white/80">
+                    BRAND SHOOT
                   </span>
                   <TrendingUp size={14} className="text-[var(--color-accent)]" />
-                </div>
-                <div>
-                  <div className="h-2 w-3/4 rounded-full bg-white/20 mb-2" />
-                  <div className="h-2 w-1/2 rounded-full bg-white/10" />
                 </div>
               </div>
             </motion.div>
@@ -130,22 +132,47 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30, rotate: 6 }}
               animate={{ opacity: 1, y: 0, rotate: 8 }}
               transition={{ duration: 0.8, delay: 0.45 }}
-              className="absolute top-0 right-0 w-[54%] aspect-square rounded-3xl glass-strong p-4 shadow-2xl"
+              className="absolute top-0 right-0 w-[56%] aspect-square rounded-3xl glass-strong p-3 shadow-2xl overflow-hidden group"
             >
-              <div className="w-full h-full rounded-2xl bg-gradient-to-br from-[var(--color-accent-2)]/30 via-[var(--color-surface)] to-[var(--color-bg)] p-4 flex flex-col justify-end">
-                <span className="text-[10px] font-semibold tracking-widest text-white/70 mb-2">
-                  ENGAGEMENT
-                </span>
-                <div className="flex items-end gap-1.5 h-14">
-                  {[40, 65, 45, 80, 60, 95].map((h, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ duration: 0.6, delay: 0.7 + i * 0.06 }}
-                      className="flex-1 rounded-t-sm bg-[var(--color-accent)]/70"
-                    />
-                  ))}
+              <div className="w-full h-full rounded-2xl relative overflow-hidden bg-black/40 border border-white/10 flex flex-col justify-between p-3.5">
+                {/* AI generated chart background graphic */}
+                <img
+                  src="/images/engagement_chart.png"
+                  alt="AI Engagement Analytics Chart"
+                  className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+                {/* Header overlay badge */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/15">
+                    <span className="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
+                    <span className="text-[10px] font-bold tracking-wider text-white/90 uppercase">
+                      AI ENGAGEMENT GRAPH
+                    </span>
+                  </div>
+                  <span className="text-xs font-extrabold text-[var(--color-accent)] bg-[var(--color-accent)]/15 px-2 py-0.5 rounded-md border border-[var(--color-accent)]/30">
+                    +340%
+                  </span>
+                </div>
+
+                {/* Bottom stats & animated bars */}
+                <div className="relative z-10 flex items-end justify-between">
+                  <div>
+                    <div className="text-[10px] font-medium text-white/70">Monthly Reach</div>
+                    <div className="text-lg font-black text-white tracking-tight">148.5K+</div>
+                  </div>
+                  <div className="flex items-end gap-1 h-8">
+                    {[45, 65, 55, 85, 75, 100].map((h, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ height: 0 }}
+                        animate={{ height: `${h}%` }}
+                        transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
+                        className="w-1.5 rounded-full bg-gradient-to-t from-[var(--color-accent)] to-[var(--color-accent-2)]"
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -157,7 +184,14 @@ export default function Hero() {
               className="absolute bottom-0 right-4 w-[58%] rounded-2xl glass-strong p-4 shadow-2xl"
             >
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)]" />
+                {/* Owner avatar */}
+                <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--color-accent)]/40">
+                  <img
+                    src="/images/owner-founder.jpg.jpg"
+                    alt="Founder"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <div className="flex-1">
                   <div className="h-1.5 w-3/4 rounded-full bg-white/25 mb-1.5" />
                   <div className="h-1.5 w-1/2 rounded-full bg-white/10" />

@@ -76,20 +76,32 @@ export default function Portfolio() {
                 onClick={() => setLightbox(item.id)}
                 className={`group relative w-full mb-4 break-inside-avoid rounded-2xl overflow-hidden card-border bg-[var(--color-surface)] ${ratioClass[item.ratio]} block text-left`}
               >
+                {/* Real photo background */}
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                )}
+                {/* Gradient overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${gradients[item.id % gradients.length]} via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br ${gradients[item.id % gradients.length]} via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500`}
                 />
+                {/* Dark vignette for text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-400">
-                    <ArrowUpRight size={20} className="text-[var(--color-text)]" />
+                    <ArrowUpRight size={20} className="text-white" />
                   </div>
                 </div>
                 <div className="absolute top-4 left-4">
-                  <span className="text-[10px] tracking-widest uppercase glass rounded-full px-3 py-1 text-[var(--color-text-secondary)]">
+                  <span className="text-[10px] tracking-widest uppercase glass rounded-full px-3 py-1 text-white/80">
                     {item.label}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-5">
                   <h3 className="text-base font-medium text-white">{item.title}</h3>
                 </div>
               </motion.button>
@@ -124,9 +136,17 @@ export default function Portfolio() {
                 <X size={16} />
               </button>
               <div
-                className={`aspect-video bg-gradient-to-br ${gradients[openItem.id % gradients.length]} via-[var(--color-surface)] to-[var(--color-bg)] flex items-center justify-center`}
+                className={`relative aspect-video overflow-hidden bg-gradient-to-br ${gradients[openItem.id % gradients.length]} via-[var(--color-surface)] to-[var(--color-bg)] flex items-center justify-center`}
               >
-                <span className="text-xs tracking-widest uppercase text-[var(--color-text-muted)]">
+                {openItem.image && (
+                  <img
+                    src={openItem.image}
+                    alt={openItem.title}
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                  />
+                )}
+                <div className="absolute inset-0 bg-black/30" />
+                <span className="relative text-xs tracking-widest uppercase text-white/70">
                   {openItem.label}
                 </span>
               </div>
@@ -145,3 +165,4 @@ export default function Portfolio() {
     </section>
   )
 }
+

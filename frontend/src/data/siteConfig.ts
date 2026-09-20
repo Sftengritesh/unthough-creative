@@ -43,31 +43,37 @@ export const audiences = [
     title: 'Restaurants & Cafes',
     desc: 'Mouth-watering visuals and story content that fill tables.',
     tag: 'Food & Hospitality',
+    image: '/images/cafe.jpg',
   },
   {
     title: 'Fitness & Wellness',
     desc: 'High-energy reels and transformation-driven storytelling.',
     tag: 'Gyms & Studios',
+    image: '/images/fitness.jpg',
   },
   {
     title: 'Salons & Beauty',
     desc: 'Aesthetic-first content that showcases skill and results.',
     tag: 'Beauty & Grooming',
+    image: '/images/salon.jpg',
   },
   {
     title: 'Schools & Institutions',
     desc: 'Trust-building content for admissions and community.',
     tag: 'Education',
+    image: '/images/education.jpg',
   },
   {
     title: 'Retail & Lifestyle',
     desc: 'Scroll-stopping product content that drives conversions.',
     tag: 'Clothing & Retail',
+    image: '/images/fashion.jpg',
   },
   {
     title: 'Startups & Personal Brands',
     desc: 'Positioning-led content that builds authority fast.',
     tag: 'Founders & Creators',
+    image: '/images/video_production.jpg',
   },
 ]
 
@@ -148,15 +154,15 @@ export const portfolioCategories = [
 ]
 
 export const portfolioItems = [
-  { id: 1, title: 'Café Launch Campaign', category: 'food', label: 'Sample Campaign', ratio: 'portrait' },
-  { id: 2, title: 'Fitness Transformation Series', category: 'fitness', label: 'Selected Concept', ratio: 'square' },
-  { id: 3, title: 'Salon Rebrand Content', category: 'beauty', label: 'Creative Direction', ratio: 'portrait' },
-  { id: 4, title: 'Institute Admissions Push', category: 'education', label: 'Sample Campaign', ratio: 'landscape' },
-  { id: 5, title: 'Restaurant Menu Reels', category: 'food', label: 'Selected Concept', ratio: 'portrait' },
-  { id: 6, title: 'Apparel Drop Campaign', category: 'brand', label: 'Creative Direction', ratio: 'square' },
-  { id: 7, title: 'Gym Opening Content', category: 'fitness', label: 'Sample Campaign', ratio: 'landscape' },
-  { id: 8, title: 'Product Shoot Series', category: 'product', label: 'Selected Concept', ratio: 'square' },
-  { id: 9, title: 'Personal Brand Positioning', category: 'brand', label: 'Creative Direction', ratio: 'portrait' },
+  { id: 1, title: 'Café Launch Campaign', category: 'food', label: 'Sample Campaign', ratio: 'portrait', image: '/images/cafe.jpg' },
+  { id: 2, title: 'Fitness Transformation Series', category: 'fitness', label: 'Selected Concept', ratio: 'square', image: '/images/fitness.jpg' },
+  { id: 3, title: 'Salon Rebrand Content', category: 'beauty', label: 'Creative Direction', ratio: 'portrait', image: '/images/salon.jpg' },
+  { id: 4, title: 'Institute Admissions Push', category: 'education', label: 'Sample Campaign', ratio: 'landscape', image: '/images/education.jpg' },
+  { id: 5, title: 'Restaurant Menu Reels', category: 'food', label: 'Selected Concept', ratio: 'portrait', image: '/images/cafe.jpg' },
+  { id: 6, title: 'Apparel Drop Campaign', category: 'brand', label: 'Creative Direction', ratio: 'square', image: '/images/fashion.jpg' },
+  { id: 7, title: 'Gym Opening Content', category: 'fitness', label: 'Sample Campaign', ratio: 'landscape', image: '/images/fitness.jpg' },
+  { id: 8, title: 'Product Shoot Series', category: 'product', label: 'Selected Concept', ratio: 'square', image: '/images/content_shoot.jpg' },
+  { id: 9, title: 'Personal Brand Positioning', category: 'brand', label: 'Creative Direction', ratio: 'portrait', image: '/images/video_production.jpg' },
 ]
 
 export const whyUs = [
