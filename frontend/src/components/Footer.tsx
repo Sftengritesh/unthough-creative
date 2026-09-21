@@ -76,8 +76,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-[var(--color-line)] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[var(--color-text-muted)]">
-          <span>© {business.year} Unthought Creative. All rights reserved.</span>
+        <div className="mt-12 pt-6 border-t border-[var(--color-line)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="flex items-center gap-2">
+            <span className="font-bold tracking-wider text-white">UNTHOUGHT</span>
+            <span className="text-[var(--color-line)]">|</span>
+            <span>© {business.year} UNTHOUGHT CREATIVE. All rights reserved.</span>
+          </div>
+          <div className="flex items-center gap-5 text-xs text-slate-400">
+            <a href="#privacy" className="hover:text-[var(--color-accent)] transition-colors">Privacy Policy</a>
+            <a href="#terms" className="hover:text-[var(--color-accent)] transition-colors">Terms of Service</a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault()
+                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="hover:text-[var(--color-accent)] transition-colors"
+            >
+              Get in Touch
+            </a>
+          </div>
         </div>
       </div>
     </footer>

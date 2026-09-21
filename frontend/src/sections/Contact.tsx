@@ -104,8 +104,8 @@ export default function Contact() {
         <div className="lg:col-span-5">
           <SectionHeading
             eyebrow="Get In Touch"
-            title="Let's Create Something Worth Talking About."
-            description="Tell us about your business, your goals, and what you want to build."
+            title="Ready To Elevate Your Brand's Social Presence?"
+            description="Let's discuss how we can turn your creative vision into measurable traction and revenue."
           />
 
           <div className="mt-10 flex flex-col gap-4">

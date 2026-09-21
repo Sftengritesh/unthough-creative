@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Check, Star } from 'lucide-react'
+import { Check } from 'lucide-react'
 import SectionHeading from '@/components/SectionHeading'
 import { packages } from '@/data/siteConfig'
 import { fadeUp, viewportOnce } from '@/lib/motion'
@@ -10,11 +10,11 @@ export default function Pricing() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Packages"
-          title="Simple Packages. Serious Results."
-          description="Choose a starting point — every package can be tailored to your business."
+          title="Simple, Transparent Investment."
+          description="Designed to fit your current stage and scale seamlessly as your audience expands."
         />
 
-        <div className="mt-14 grid md:grid-cols-3 gap-6 items-start">
+        <div className="mt-14 grid md:grid-cols-3 gap-6 items-stretch">
           {packages.map((pkg, i) => (
             <motion.div
               key={pkg.name}
@@ -23,35 +23,34 @@ export default function Pricing() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className={`relative rounded-3xl p-8 flex flex-col h-full transition-transform duration-500 hover:-translate-y-1.5 ${
+              className={`relative rounded-2xl p-7 flex flex-col h-full transition-all duration-500 ${
                 pkg.featured
-                  ? 'glass-strong shadow-[0_20px_60px_rgba(124,140,255,0.15)] md:scale-[1.04] border border-[var(--color-accent)]/40'
-                  : 'card-border bg-[var(--color-surface)]'
+                  ? 'bg-[#061f23] border-2 border-[var(--color-accent)] shadow-[0_0_40px_rgba(0,187,166,0.22)] md:-translate-y-2'
+                  : 'bg-[#05191c]/80 border border-[var(--color-line)] hover:border-[var(--color-accent)]/30'
               }`}
             >
               {pkg.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)] text-white text-[11px] font-semibold px-4 py-1.5 rounded-full shadow-lg">
-                  <Star size={11} className="fill-white" />
-                  Most Popular
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-[#030d0e] border border-[var(--color-accent)] text-[var(--color-accent)] text-[10px] font-bold tracking-widest uppercase px-3 py-0.5 rounded-full shadow-md">
+                  POPULAR
                 </div>
               )}
 
-              <h3 className="text-lg font-medium text-[var(--color-text)]">{pkg.name}</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] mt-1">{pkg.audience}</p>
+              <h3 className="text-xl font-bold text-white tracking-tight">{pkg.name}</h3>
+              <p className="text-xs text-slate-400 mt-1 min-h-[32px]">{pkg.audience}</p>
 
-              <div className="mt-6 flex items-end gap-1">
-                <span className="text-4xl font-medium font-[var(--font-display)] text-[var(--color-text)]">
+              <div className="mt-5 flex items-baseline gap-1.5">
+                <span className="text-4xl font-bold font-sans text-white tracking-tight">
                   {pkg.price}
                 </span>
-                <span className="text-sm text-[var(--color-text-muted)] mb-1">{pkg.period}</span>
+                <span className="text-xs text-slate-400 font-medium">{pkg.period}</span>
               </div>
 
               <div className="h-px w-full bg-[var(--color-line)] my-6" />
 
               <ul className="space-y-3 flex-1">
                 {pkg.includes.map((inc) => (
-                  <li key={inc} className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
-                    <Check size={15} className="text-[var(--color-accent)] shrink-0 mt-0.5" />
+                  <li key={inc} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                    <Check size={16} className="text-[var(--color-accent)] shrink-0 mt-0.5" />
                     <span>{inc}</span>
                   </li>
                 ))}
@@ -65,7 +64,7 @@ export default function Pricing() {
                 }}
                 className={`mt-8 w-full text-center ${pkg.featured ? 'btn-primary' : 'btn-outline'}`}
               >
-                Discuss Your Package
+                {pkg.name === 'Starter' ? 'Choose Starter' : pkg.name === 'Scale' ? 'Choose Scale' : 'Get Started'}
               </a>
             </motion.div>
           ))}

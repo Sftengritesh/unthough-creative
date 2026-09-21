@@ -65,18 +65,23 @@ export default function Navbar() {
               e.preventDefault()
               handleNavClick('#home')
             }}
-            className="flex flex-col leading-none group"
+            className="flex items-center gap-2 group"
           >
-            <span className="text-[15px] sm:text-base font-semibold tracking-[0.12em] text-[var(--color-text)]">
-              UNTHOUGHT
-            </span>
-            <span className="text-[10px] sm:text-[11px] tracking-[0.3em] text-[var(--color-accent)] font-medium">
-              CREATIVE
-            </span>
+            <div className="flex flex-col leading-none">
+              <div className="flex items-center gap-1">
+                <span className="text-[15px] sm:text-base font-bold tracking-[0.14em] text-[var(--color-text)]">
+                  UNTHOUGHT
+                </span>
+                <span className="text-[var(--color-accent)] text-xs">✦</span>
+              </div>
+              <span className="text-[9px] sm:text-[10px] tracking-[0.32em] text-[var(--color-accent)] font-semibold uppercase">
+                CREATIVE
+              </span>
+            </div>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1.5 glass rounded-full px-3 py-1.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -85,19 +90,12 @@ export default function Navbar() {
                   e.preventDefault()
                   handleNavClick(link.href)
                 }}
-                className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${
+                className={`relative px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-300 ${
                   active === link.href
-                    ? 'text-[var(--color-text)]'
+                    ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/15 border border-[var(--color-accent)]/30'
                     : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
                 }`}
               >
-                {active === link.href && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-0 rounded-full bg-white/8 border border-[var(--color-line)]"
-                    transition={{ type: 'spring', duration: 0.5 }}
-                  />
-                )}
                 <span className="relative z-10">{link.label}</span>
               </a>
             ))}
@@ -111,7 +109,7 @@ export default function Navbar() {
                 e.preventDefault()
                 handleNavClick('#contact')
               }}
-              className="btn-primary !py-2.5 !px-5 text-[13px]"
+              className="btn-outline !py-2 !px-5 text-xs font-semibold tracking-wider hover:bg-[var(--color-accent)] hover:text-[#030d0e]"
             >
               Let's Talk
             </a>

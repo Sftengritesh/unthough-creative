@@ -10,7 +10,7 @@ export default function Process() {
         <SectionHeading eyebrow="Our Approach" title="From Idea To Impact." align="left" />
 
         <div className="mt-16 relative">
-          <div className="hidden lg:block absolute top-6 left-0 right-0 h-px bg-[var(--color-line)]" />
+          <div className="hidden lg:block absolute top-6 left-6 right-6 h-0.5 bg-[var(--color-line)]" />
           <div className="grid lg:grid-cols-4 gap-8 lg:gap-10">
             {processSteps.map((step, i) => (
               <motion.div
@@ -22,15 +22,15 @@ export default function Process() {
                 viewport={viewportOnce}
                 className="relative"
               >
-                <div className="relative z-10 w-12 h-12 rounded-full glass-strong flex items-center justify-center mb-6">
-                  <span className="text-sm font-semibold text-[var(--color-accent)]">
+                <div className="relative z-10 w-12 h-12 rounded-full bg-[#05191c] border border-[var(--color-accent)]/50 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(0,187,166,0.15)]">
+                  <span className="text-xs font-bold text-[var(--color-accent)]">
                     {step.number}
                   </span>
                 </div>
-                <h3 className="text-xl font-medium text-[var(--color-text)] mb-2 font-[var(--font-display)]">
+                <h3 className="text-xl font-bold text-white mb-2 tracking-tight font-sans">
                   {step.title}
                 </h3>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-xs">
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-xs">
                   {step.desc}
                 </p>
               </motion.div>

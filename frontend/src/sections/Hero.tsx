@@ -26,11 +26,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border border-[var(--color-accent)]/30 bg-[var(--color-surface)]/80 text-[var(--color-accent)] shadow-[0_0_15px_rgba(0,187,166,0.1)]"
             >
-              <Sparkles size={13} className="text-[var(--color-accent)]" />
-              <span className="text-xs font-medium text-[var(--color-text-secondary)] tracking-wide">
-                Social Media & Content Creation Agency
+              <span className="text-xs">✦</span>
+              <span className="text-xs font-semibold tracking-wide">
+                Social Media Content & Creative Agency
               </span>
             </motion.div>
 
@@ -43,14 +43,14 @@ export default function Hero() {
               Your Brand Deserves
               <br />
               More Than Just{' '}
-              <span className="gradient-text italic">Content.</span>
+              <span className="gradient-text italic font-serif">Content.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.22 }}
-              className="body-lg mt-7 max-w-xl"
+              className="body-lg mt-7 max-w-xl text-slate-300"
             >
               We help ambitious businesses turn social media into a powerful
               growth engine through strategy, storytelling, and
@@ -94,117 +94,107 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-12 flex items-center gap-3 text-xs sm:text-sm text-[var(--color-text-muted)] tracking-wide"
+              className="mt-12 flex items-center gap-3 text-xs sm:text-sm text-[var(--color-text-muted)] tracking-wider uppercase font-semibold"
             >
-              <span>Content</span>
-              <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
-              <span>Strategy</span>
-              <span className="w-1 h-1 rounded-full bg-[var(--color-accent)]" />
-              <span>Growth</span>
+              <span>CONTENT</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+              <span>STRATEGY</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+              <span>GROWTH</span>
             </motion.div>
           </div>
 
           {/* Right: floating composition */}
-          <div className="lg:col-span-5 relative h-[420px] sm:h-[480px] lg:h-[540px]">
+          <div className="lg:col-span-5 relative h-[460px] sm:h-[500px] lg:h-[560px]">
+            {/* Main Shoot Photo Frame */}
             <motion.div
-              initial={{ opacity: 0, y: 30, rotate: -4 }}
-              animate={{ opacity: 1, y: 0, rotate: -6 }}
+              initial={{ opacity: 0, y: 30, rotate: -2 }}
+              animate={{ opacity: 1, y: 0, rotate: -3 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="absolute top-6 left-0 w-[62%] aspect-[4/5] rounded-3xl glass-strong p-4 shadow-2xl"
+              className="absolute top-10 left-0 w-[72%] aspect-[4/5] rounded-3xl glass-strong p-3 shadow-2xl border border-[var(--color-accent)]/20"
             >
               <div className="w-full h-full rounded-2xl overflow-hidden relative">
                 <img
                   src="/images/imagesowner-studio.jpg.jpg"
-                  alt="Unthought Creative — Owner at a content shoot"
+                  alt="Unthought Creative — Brand Shoot"
                   className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#030d0e]/80 via-transparent to-transparent" />
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold tracking-widest text-white/80">
-                    BRAND SHOOT
+                  <span className="text-[10px] font-bold tracking-widest text-white/90 uppercase bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                    ✦ BRAND SHOOT
                   </span>
-                  <TrendingUp size={14} className="text-[var(--color-accent)]" />
+                  <TrendingUp size={16} className="text-[var(--color-accent)]" />
                 </div>
               </div>
             </motion.div>
 
+            {/* Top Right Analytics Card Widget */}
             <motion.div
-              initial={{ opacity: 0, y: 30, rotate: 6 }}
-              animate={{ opacity: 1, y: 0, rotate: 8 }}
+              initial={{ opacity: 0, y: -20, x: 20 }}
+              animate={{ opacity: 1, y: 0, x: 0 }}
               transition={{ duration: 0.8, delay: 0.45 }}
-              className="absolute top-0 right-0 w-[56%] aspect-square rounded-3xl glass-strong p-3 shadow-2xl overflow-hidden group"
+              className="absolute top-0 right-0 w-[62%] rounded-2xl glass-strong p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-[var(--color-accent)]/30 backdrop-blur-xl group"
             >
-              <div className="w-full h-full rounded-2xl relative overflow-hidden bg-black/40 border border-white/10 flex flex-col justify-between p-3.5">
-                {/* AI generated chart background graphic */}
-                <img
-                  src="/images/engagement_chart.png"
-                  alt="AI Engagement Analytics Chart"
-                  className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-
-                {/* Header overlay badge */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/15">
-                    <span className="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
-                    <span className="text-[10px] font-bold tracking-wider text-white/90 uppercase">
-                      AI ENGAGEMENT GRAPH
-                    </span>
-                  </div>
-                  <span className="text-xs font-extrabold text-[var(--color-accent)] bg-[var(--color-accent)]/15 px-2 py-0.5 rounded-md border border-[var(--color-accent)]/30">
-                    +340%
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
+                  <span className="text-[10px] font-bold tracking-wider text-white/80 uppercase">
+                    REELS REACH
                   </span>
                 </div>
+                <span className="text-xs font-extrabold text-[var(--color-accent)] bg-[var(--color-accent)]/15 px-2 py-0.5 rounded-full border border-[var(--color-accent)]/30">
+                  +140%
+                </span>
+              </div>
+              <div className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">MONTHLY REACH</div>
+              <div className="text-2xl font-black text-white tracking-tight">148.5K+</div>
 
-                {/* Bottom stats & animated bars */}
-                <div className="relative z-10 flex items-end justify-between">
-                  <div>
-                    <div className="text-[10px] font-medium text-white/70">Monthly Reach</div>
-                    <div className="text-lg font-black text-white tracking-tight">148.5K+</div>
-                  </div>
-                  <div className="flex items-end gap-1 h-8">
-                    {[45, 65, 55, 85, 75, 100].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ height: 0 }}
-                        animate={{ height: `${h}%` }}
-                        transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
-                        className="w-1.5 rounded-full bg-gradient-to-t from-[var(--color-accent)] to-[var(--color-accent-2)]"
-                      />
-                    ))}
-                  </div>
-                </div>
+              {/* Glowing trend curve graph */}
+              <div className="mt-3 h-14 relative w-full flex items-end justify-between gap-1 overflow-hidden pt-2">
+                <svg className="absolute inset-0 w-full h-full text-[var(--color-accent)]" viewBox="0 0 200 60" fill="none" preserveAspectRatio="none">
+                  <path d="M0 45 Q 40 35, 80 40 T 160 15 T 200 8" stroke="currentColor" strokeWidth="2.5" fill="none" />
+                  <path d="M0 45 Q 40 35, 80 40 T 160 15 T 200 8 L 200 60 L 0 60 Z" fill="url(#cyan-grad)" opacity="0.25" />
+                  <defs>
+                    <linearGradient id="cyan-grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#00bba6" />
+                      <stop offset="100%" stopColor="#00bba6" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                {[30, 45, 38, 60, 52, 78, 95].map((h, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ height: 0 }}
+                    animate={{ height: `${h}%` }}
+                    transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
+                    className="w-2 rounded-t-sm bg-gradient-to-t from-[var(--color-accent)]/30 to-[var(--color-accent)] relative z-10"
+                  />
+                ))}
               </div>
             </motion.div>
 
+            {/* Bottom Profile Status Bar */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute bottom-0 right-4 w-[58%] rounded-2xl glass-strong p-4 shadow-2xl"
+              className="absolute bottom-4 right-2 w-[60%] rounded-2xl glass-strong p-3 shadow-2xl border border-white/10 flex items-center justify-between"
             >
               <div className="flex items-center gap-3">
-                {/* Owner avatar */}
-                <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--color-accent)]/40">
+                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--color-accent)]">
                   <img
                     src="/images/owner-founder.jpg.jpg"
                     alt="Founder"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <div className="flex-1">
-                  <div className="h-1.5 w-3/4 rounded-full bg-white/25 mb-1.5" />
-                  <div className="h-1.5 w-1/2 rounded-full bg-white/10" />
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-white">Unthought Team</span>
+                  <span className="text-[10px] text-[var(--color-accent)]">Active Content Strategy</span>
                 </div>
               </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute bottom-16 left-2 w-16 h-16 rounded-2xl glass flex items-center justify-center shadow-xl"
-            >
-              <Sparkles size={20} className="text-[var(--color-accent)]" />
+              <Sparkles size={16} className="text-[var(--color-accent)] animate-spin-slow" />
             </motion.div>
           </div>
         </div>
