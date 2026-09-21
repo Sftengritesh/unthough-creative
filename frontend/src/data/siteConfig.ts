@@ -20,8 +20,8 @@ export const contact = {
   whatsappNumber: '916388716210', // country code + number, no symbols
   whatsappMessage:
     "Hi Unthought Creative, I'd like to discuss social media content services for my business.",
-  instagramHandle: '@unthought_creative_',
-  instagramUrl: 'https://instagram.com/unthought_creative_',
+  instagramHandle: '@unthoughtcreative',
+  instagramUrl: 'https://instagram.com/unthoughtcreative',
   email: 'hello@unthoughtcreative.com',
 }
 
