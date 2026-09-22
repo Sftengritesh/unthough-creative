@@ -18,7 +18,7 @@ export default function WhyUs() {
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden card-border">
             {/* Owner photo */}
             <img
-              src="/images/owner-founder.jpg.jpg"
+              src="/images/owner-founder.jpg"
               alt="Founder of Unthought Creative"
               className="w-full h-full object-cover object-top"
               loading="lazy"

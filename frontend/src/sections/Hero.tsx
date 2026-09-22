@@ -115,7 +115,7 @@ export default function Hero() {
             >
               <div className="w-full h-full rounded-2xl overflow-hidden relative">
                 <img
-                  src="/images/imagesowner-studio.jpg.jpg"
+                  src="/images/imagesowner-studio.jpg"
                   alt="Unthought Creative — Brand Shoot"
                   className="w-full h-full object-cover object-center"
                 />
@@ -184,7 +184,7 @@ export default function Hero() {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--color-accent)]">
                   <img
-                    src="/images/owner-founder.jpg.jpg"
+                    src="/images/owner-founder.jpg"
                     alt="Founder"
                     className="w-full h-full object-cover object-top"
                   />
