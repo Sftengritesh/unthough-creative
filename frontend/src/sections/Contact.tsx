@@ -85,7 +85,8 @@ export default function Contact() {
       await submitInquiry(form)
       setStatus('success')
       setForm(initialForm)
-    } catch {
+    } catch (err) {
+      console.error('Inquiry submission error:', err)
       setStatus('error')
       setErrorMsg(
         'Something went wrong sending your inquiry. Please try again or reach out on WhatsApp.'

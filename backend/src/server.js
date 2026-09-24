@@ -16,10 +16,13 @@ const app = express()
 const PORT = process.env.PORT || 5000
 
 // Allow a comma-separated list of origins in CLIENT_URL, e.g.
-// CLIENT_URL=http://localhost:5173,https://unthoughtcreative.netlify.app
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
+// CLIENT_URL=http://localhost:5173,https://unthoughtcreative.vercel.app
+const allowedOrigins = (
+  process.env.CLIENT_URL ||
+  'http://localhost:5173,https://unthoughtcreative.vercel.app'
+)
   .split(',')
-  .map((s) => s.trim())
+  .map((s) => s.trim().replace(/\/+$/, ''))
   .filter(Boolean)
 
 app.use(helmet())
@@ -27,7 +30,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // allow non-browser tools (curl, Postman) with no origin header
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.includes(origin.replace(/\/+$/, ''))) {
         callback(null, true)
       } else {
         callback(new Error('Not allowed by CORS'))
