@@ -22,7 +22,7 @@ export default function Process() {
                 viewport={viewportOnce}
                 className="relative"
               >
-                <div className="relative z-10 w-12 h-12 rounded-full bg-[#05191c] border border-[var(--color-accent)]/50 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(0,187,166,0.15)]">
+                <div className="relative z-10 w-12 h-12 rounded-full bg-[var(--color-surface)] border border-[var(--color-accent)]/50 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,77,21,0.15)]">
                   <span className="text-xs font-bold text-[var(--color-accent)]">
                     {step.number}
                   </span>

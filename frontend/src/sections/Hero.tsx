@@ -26,7 +26,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border border-[var(--color-accent)]/30 bg-[var(--color-surface)]/80 text-[var(--color-accent)] shadow-[0_0_15px_rgba(0,187,166,0.1)]"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border border-[var(--color-accent)]/30 bg-[var(--color-surface)]/80 text-[var(--color-accent)] shadow-[0_0_15px_rgba(255,77,21,0.15)]"
             >
               <span className="text-xs">✦</span>
               <span className="text-xs font-semibold tracking-wide">
@@ -119,7 +119,7 @@ export default function Hero() {
                   alt="Unthought Creative — Brand Shoot"
                   className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030d0e]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent" />
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
                   <span className="text-[10px] font-bold tracking-widest text-white/90 uppercase bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
                     ✦ BRAND SHOOT
@@ -154,11 +154,11 @@ export default function Hero() {
               <div className="mt-3 h-14 relative w-full flex items-end justify-between gap-1 overflow-hidden pt-2">
                 <svg className="absolute inset-0 w-full h-full text-[var(--color-accent)]" viewBox="0 0 200 60" fill="none" preserveAspectRatio="none">
                   <path d="M0 45 Q 40 35, 80 40 T 160 15 T 200 8" stroke="currentColor" strokeWidth="2.5" fill="none" />
-                  <path d="M0 45 Q 40 35, 80 40 T 160 15 T 200 8 L 200 60 L 0 60 Z" fill="url(#cyan-grad)" opacity="0.25" />
+                  <path d="M0 45 Q 40 35, 80 40 T 160 15 T 200 8" fill="url(#accent-grad)" opacity="0.25" />
                   <defs>
-                    <linearGradient id="cyan-grad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#00bba6" />
-                      <stop offset="100%" stopColor="#00bba6" stopOpacity="0" />
+                    <linearGradient id="accent-grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#ff4d15" />
+                      <stop offset="100%" stopColor="#ff4d15" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                 </svg>

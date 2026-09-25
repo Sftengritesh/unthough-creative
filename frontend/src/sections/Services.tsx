@@ -22,7 +22,7 @@ export default function Services() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
-              className="group relative bg-[#05191c]/80 border border-[var(--color-line)] rounded-2xl p-7 min-h-[240px] flex flex-col justify-between transition-all duration-500 hover:border-[var(--color-accent)]/50 hover:bg-[#072328] hover:-translate-y-1 shadow-lg"
+              className="group relative bg-[var(--color-surface)]/80 border border-[var(--color-line)] rounded-2xl p-7 min-h-[240px] flex flex-col justify-between transition-all duration-500 hover:border-[var(--color-accent)]/50 hover:bg-[var(--color-surface-hi)] hover:-translate-y-1 shadow-lg"
             >
               <span className="text-5xl font-normal text-[var(--color-accent)] font-[var(--font-display)]">
                 {service.number}

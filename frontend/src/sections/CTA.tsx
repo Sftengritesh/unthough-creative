@@ -17,7 +17,7 @@ export default function CTA() {
             className="pointer-events-none absolute inset-0 opacity-60"
             style={{
               backgroundImage:
-                'radial-gradient(circle at 50% 0%, rgba(124,140,255,0.18), transparent 60%)',
+                'radial-gradient(circle at 50% 0%, rgba(255,77,21,0.2), transparent 60%)',
             }}
           />
           <div className="relative z-10 max-w-2xl mx-auto">

@@ -51,7 +51,7 @@ export default function Portfolio() {
               onClick={() => setActive(cat.key)}
               className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 ${
                 active === cat.key
-                  ? 'bg-[var(--color-text)] text-[#0a0d16] border-[var(--color-text)]'
+                  ? 'bg-[var(--color-text)] text-[#09090b] border-[var(--color-text)]'
                   : 'border-[var(--color-line)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent)] hover:text-[var(--color-text)]'
               }`}
             >

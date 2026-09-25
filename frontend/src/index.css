@@ -4,16 +4,16 @@
   --font-display: "Fraunces", "Playfair Display", "Georgia", serif;
   --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 
-  --color-bg: #030d0e;
-  --color-bg-secondary: #05181b;
-  --color-surface: #061c1f;
-  --color-surface-hi: #092a2f;
+  --color-bg: #09090b;
+  --color-bg-secondary: #0e0e11;
+  --color-surface: #131316;
+  --color-surface-hi: #1a1a1e;
   --color-text: #ffffff;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #5e707e;
-  --color-accent: #00bba6;
-  --color-accent-2: #0d9488;
-  --color-line: rgba(0, 200, 180, 0.14);
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #6b7280;
+  --color-accent: #ff4d15;
+  --color-accent-2: #ff3600;
+  --color-line: rgba(255, 255, 255, 0.08);
 
   --breakpoint-xs: 360px;
 }
@@ -25,8 +25,8 @@ html {
 body {
   background-color: var(--color-bg);
   background-image: 
-    linear-gradient(to right, rgba(0, 180, 160, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 180, 160, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 77, 21, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 77, 21, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
   color: var(--color-text);
   font-family: var(--font-sans);
@@ -36,7 +36,7 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: #030d0e;
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -95,7 +95,7 @@ body {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] text-[#030d0e] px-6 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#00d8c0] hover:shadow-[0_0_24px_rgba(0,187,166,0.4)] active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] text-white px-6 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#ff622e] hover:shadow-[0_0_24px_rgba(255,77,21,0.45)] active:scale-[0.98];
   }
 
   .btn-outline {
@@ -107,7 +107,7 @@ body {
   }
 
   .gradient-text {
-    background: linear-gradient(90deg, #00bba6, #00e5ce);
+    background: linear-gradient(90deg, #ff4d15, #ff7e36);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

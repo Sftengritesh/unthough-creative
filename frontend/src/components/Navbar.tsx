@@ -109,7 +109,7 @@ export default function Navbar() {
                 e.preventDefault()
                 handleNavClick('#contact')
               }}
-              className="btn-outline !py-2 !px-5 text-xs font-semibold tracking-wider hover:bg-[var(--color-accent)] hover:text-[#030d0e]"
+              className="btn-outline !py-2 !px-5 text-xs font-semibold tracking-wider hover:bg-[var(--color-accent)] hover:text-white"
             >
               Let's Talk
             </a>

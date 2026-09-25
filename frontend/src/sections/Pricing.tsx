@@ -25,12 +25,12 @@ export default function Pricing() {
               viewport={viewportOnce}
               className={`relative rounded-2xl p-7 flex flex-col h-full transition-all duration-500 ${
                 pkg.featured
-                  ? 'bg-[#061f23] border-2 border-[var(--color-accent)] shadow-[0_0_40px_rgba(0,187,166,0.22)] md:-translate-y-2'
-                  : 'bg-[#05191c]/80 border border-[var(--color-line)] hover:border-[var(--color-accent)]/30'
+                  ? 'bg-[#18181c] border-2 border-[var(--color-accent)] shadow-[0_0_40px_rgba(255,77,21,0.22)] md:-translate-y-2'
+                  : 'bg-[var(--color-surface)]/80 border border-[var(--color-line)] hover:border-[var(--color-accent)]/30'
               }`}
             >
               {pkg.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-[#030d0e] border border-[var(--color-accent)] text-[var(--color-accent)] text-[10px] font-bold tracking-widest uppercase px-3 py-0.5 rounded-full shadow-md">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-[#09090b] border border-[var(--color-accent)] text-[var(--color-accent)] text-[10px] font-bold tracking-widest uppercase px-3 py-0.5 rounded-full shadow-md">
                   POPULAR
                 </div>
               )}
