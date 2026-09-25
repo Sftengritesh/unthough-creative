@@ -15,26 +15,49 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 5000
 
-// Allow a comma-separated list of origins in CLIENT_URL, e.g.
-// CLIENT_URL=http://localhost:5173,https://unthoughtcreative.vercel.app
-const allowedOrigins = (
-  process.env.CLIENT_URL ||
-  'http://localhost:5173,https://unthoughtcreative.vercel.app'
+// Allow production frontend, local development,
+// and any additional origins from CLIENT_URL.
+const defaultOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'https://unthoughtcreative.vercel.app',
+]
+
+const envOrigins = process.env.CLIENT_URL
+  ? process.env.CLIENT_URL.split(',')
+  : []
+
+const allowedOrigins = Array.from(
+  new Set(
+    [...defaultOrigins, ...envOrigins]
+      .map((origin) =>
+        origin.trim().replace(/\/+$/, '').toLowerCase()
+      )
+      .filter(Boolean)
+  )
 )
-  .split(',')
-  .map((s) => s.trim().replace(/\/+$/, ''))
-  .filter(Boolean)
 
 app.use(helmet())
+
 app.use(
   cors({
     origin: (origin, callback) => {
-      // allow non-browser tools (curl, Postman) with no origin header
-      if (!origin || allowedOrigins.includes(origin.replace(/\/+$/, ''))) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
+      // Allow requests without an Origin header
+      // such as curl/Postman.
+      if (!origin) {
+        return callback(null, true)
       }
+
+      const normalizedOrigin = origin
+        .trim()
+        .replace(/\/+$/, '')
+        .toLowerCase()
+
+      if (allowedOrigins.includes(normalizedOrigin)) {
+        return callback(null, true)
+      }
+
+      return callback(new Error('Not allowed by CORS'))
     },
     credentials: true,
   })
