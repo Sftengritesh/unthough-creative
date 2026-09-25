@@ -61,7 +61,7 @@ export const audiences = [
     title: 'Schools & Institutions',
     desc: 'Trust-building content for admissions and community.',
     tag: 'Education',
-    image: '/images/education.jpg',
+    image: '/images/education.png',
   },
   {
     title: 'Retail & Lifestyle',
@@ -157,7 +157,7 @@ export const portfolioItems = [
   { id: 1, title: 'Café Launch Campaign', category: 'food', label: 'Sample Campaign', ratio: 'portrait', image: '/images/cafe.jpg' },
   { id: 2, title: 'Fitness Transformation Series', category: 'fitness', label: 'Selected Concept', ratio: 'square', image: '/images/fitness.jpg' },
   { id: 3, title: 'Salon Rebrand Content', category: 'beauty', label: 'Creative Direction', ratio: 'portrait', image: '/images/salon.jpg' },
-  { id: 4, title: 'Institute Admissions Push', category: 'education', label: 'Sample Campaign', ratio: 'landscape', image: '/images/education.jpg' },
+  { id: 4, title: 'Institute Admissions Push', category: 'education', label: 'Sample Campaign', ratio: 'landscape', image: '/images/education.png' },
   { id: 5, title: 'Restaurant Menu Reels', category: 'food', label: 'Selected Concept', ratio: 'portrait', image: '/images/cafe.jpg' },
   { id: 6, title: 'Apparel Drop Campaign', category: 'brand', label: 'Creative Direction', ratio: 'square', image: '/images/fashion.jpg' },
   { id: 7, title: 'Gym Opening Content', category: 'fitness', label: 'Sample Campaign', ratio: 'landscape', image: '/images/fitness.jpg' },
