@@ -5,12 +5,6 @@ import SectionHeading from '@/components/SectionHeading'
 import { portfolioCategories, portfolioItems } from '@/data/siteConfig'
 import { fadeUp, viewportOnce } from '@/lib/motion'
 
-const ratioClass: Record<string, string> = {
-  portrait: 'aspect-[4/5]',
-  square: 'aspect-square',
-  landscape: 'aspect-[4/3]',
-}
-
 const gradients = [
   'from-[var(--color-accent)]/25',
   'from-[var(--color-accent-2)]/25',
@@ -60,8 +54,8 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="mt-10 columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+        {/* Grid: 3 cols desktop, 2 cols tablet, 1 col mobile */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-6 lg:gap-8">
           <AnimatePresence mode="popLayout">
             {items.map((item, i) => (
               <motion.button
@@ -74,35 +68,55 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 viewport={viewportOnce}
                 onClick={() => setLightbox(item.id)}
-                className={`group relative w-full mb-4 break-inside-avoid rounded-2xl overflow-hidden card-border bg-[var(--color-surface)] ${ratioClass[item.ratio]} block text-left`}
+                className="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden card-border bg-[var(--color-surface)] block text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50 transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
               >
-                {/* Real photo background */}
+                {/* Ambient blur backdrop fills card edges with matched photo tone */}
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)] max-w-none object-cover filter blur-xl brightness-[0.35] opacity-55 pointer-events-none select-none"
+                  />
+                )}
+
+                {/* Natural-proportion image rendering: no cut-offs, complete photograph visible */}
                 {item.image && (
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    className="relative z-[2] w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     loading="lazy"
                   />
                 )}
-                {/* Gradient overlay */}
+
+                {/* Subtle brand tint gradient on hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${gradients[item.id % gradients.length]} via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500`}
+                  className={`absolute inset-0 z-[3] bg-gradient-to-br ${gradients[item.id % gradients.length]} via-transparent to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none`}
                 />
-                {/* Dark vignette for text contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-400">
+
+                {/* Dark vignette for text contrast, gently scoped so images stay clean */}
+                <div className="absolute inset-0 z-[4] bg-gradient-to-t from-black/85 via-black/20 to-black/25 pointer-events-none" />
+
+                {/* Center hover action badge */}
+                <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
+                  <div className="w-14 h-14 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.5)]">
                     <ArrowUpRight size={20} className="text-white" />
                   </div>
                 </div>
-                <div className="absolute top-4 left-4">
-                  <span className="text-[10px] tracking-widest uppercase glass rounded-full px-3 py-1 text-white/80">
+
+                {/* Top category label badge — placed at top-right to avoid clashing with photo's baked-in left text */}
+                <div className="absolute top-3.5 right-3.5 z-[6]">
+                  <span className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/90 font-medium border border-white/10 shadow-sm">
                     {item.label}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-base font-medium text-white">{item.title}</h3>
+
+                {/* Bottom title */}
+                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-[6]">
+                  <h3 className="text-sm sm:text-base font-medium text-white tracking-tight line-clamp-1 group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                    {item.title}
+                  </h3>
                 </div>
               </motion.button>
             ))}
@@ -110,14 +124,14 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox: displays complete uncropped high-fidelity photograph */}
       <AnimatePresence>
         {openItem && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-black/85 backdrop-blur-md"
             onClick={() => setLightbox(null)}
           >
             <motion.div
@@ -126,31 +140,41 @@ export default function Portfolio() {
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl glass-strong rounded-3xl overflow-hidden"
+              className="relative w-full max-w-3xl glass-strong rounded-3xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.8)] border border-[var(--color-line)]"
             >
               <button
                 onClick={() => setLightbox(null)}
                 aria-label="Close preview"
-                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/40 flex items-center justify-center text-white"
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center text-white border border-white/15 transition-colors cursor-pointer"
               >
                 <X size={16} />
               </button>
-              <div
-                className={`relative aspect-video overflow-hidden bg-gradient-to-br ${gradients[openItem.id % gradients.length]} via-[var(--color-surface)] to-[var(--color-bg)] flex items-center justify-center`}
-              >
+
+              <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden bg-[var(--color-surface)] flex items-center justify-center">
+                {openItem.image && (
+                  <img
+                    src={openItem.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] max-w-none object-cover filter blur-2xl brightness-[0.35] opacity-60 pointer-events-none select-none"
+                  />
+                )}
                 {openItem.image && (
                   <img
                     src={openItem.image}
                     alt={openItem.title}
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className="relative z-[2] w-full h-full object-contain"
                   />
                 )}
-                <div className="absolute inset-0 bg-black/30" />
-                <span className="relative text-xs tracking-widest uppercase text-white/70">
-                  {openItem.label}
-                </span>
+                <div className="absolute inset-0 z-[3] bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="text-xs tracking-widest uppercase px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/80 font-medium border border-white/15">
+                    {openItem.label}
+                  </span>
+                </div>
               </div>
-              <div className="p-6">
+
+              <div className="p-6 bg-[var(--color-surface)] border-t border-[var(--color-line)]">
                 <h3 className="text-xl font-medium text-[var(--color-text)] mb-1">
                   {openItem.title}
                 </h3>
@@ -165,4 +189,3 @@ export default function Portfolio() {
     </section>
   )
 }
-
