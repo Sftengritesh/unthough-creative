@@ -38,42 +38,120 @@ export const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export const audiences = [
+export type Audience = {
+  id: string
+  title: string
+  service: string
+  desc: string
+  tag: string
+  image: string
+  deliverables: string[]
+  strategy: string
+  businessType: string
+}
+
+export const audiences: Audience[] = [
   {
-    title: 'Restaurants & Cafes',
-    desc: 'Mouth-watering visuals and story content that fill tables.',
+    id: 'cafe',
+    title: 'Restaurant & Café Content',
+    service: 'Restaurant & Café Content',
+    desc: 'Mouth-watering visuals, ambience shoots, and story content that fill tables.',
     tag: 'Food & Hospitality',
     image: '/images/cafe.jpg',
+    deliverables: [
+      'Ambience & Interior Walkthroughs',
+      'Viral Food Plating & Recipe Reels',
+      'Daily Table Reservation Stories',
+      'New Menu Launch Campaigns',
+    ],
+    strategy:
+      'We capture the sizzle, plating, and aesthetic ambience of your dining room to trigger cravings and convert local viewers into dine-in customers.',
+    businessType: 'Restaurant / Cafe',
   },
   {
-    title: 'Fitness & Wellness',
+    id: 'fitness',
+    title: 'Fitness & Wellness Content',
+    service: 'Fitness & Wellness Content',
     desc: 'High-energy reels and transformation-driven storytelling.',
     tag: 'Gyms & Studios',
     image: '/images/fitness.jpg',
+    deliverables: [
+      'Trainer & Equipment Feature Reels',
+      'Member Transformation Stories',
+      'High-Intensity Workout Clips',
+      'Seasonal Membership Campaigns',
+    ],
+    strategy:
+      'We spotlight community, energy, and results — filming dynamic workout routines and transformation journeys that inspire members to join and stay.',
+    businessType: 'Gym / Fitness Center',
   },
   {
-    title: 'Salons & Beauty',
-    desc: 'Aesthetic-first content that showcases skill and results.',
+    id: 'salon',
+    title: 'Salon & Beauty Content',
+    service: 'Salon & Beauty Content',
+    desc: 'Aesthetic-first content that showcases skill, treatments, and glow-ups.',
     tag: 'Beauty & Grooming',
     image: '/images/salon.jpg',
+    deliverables: [
+      'Hair & Makeup Transformation Reels',
+      'Aesthetic Studio & Interior Tours',
+      'Stylist Feature Spotlights',
+      'Seasonal Glow-Up Packages',
+    ],
+    strategy:
+      'Beauty content demands flawless lighting, pacing, and color grading. We turn styling transformations into mesmerizing short-form reels that keep your appointment book full.',
+    businessType: 'Salon / Beauty',
   },
   {
-    title: 'Schools & Institutions',
-    desc: 'Trust-building content for admissions and community.',
+    id: 'education',
+    title: 'Education & Admissions Content',
+    service: 'Education & Admissions Content',
+    desc: 'Trust-building campus content engineered for student admissions.',
     tag: 'Education',
     image: '/images/education.png',
+    deliverables: [
+      'Campus Walkthrough & Facility Tours',
+      'Admissions Push Campaigns',
+      'Student & Faculty Spotlights',
+      'Annual Event & Seminar Highlights',
+    ],
+    strategy:
+      'Education decisions are built on trust and prestige. We craft engaging campus walkthroughs and student testimonials that motivate parents and applicants to enquire.',
+    businessType: 'School / Institution',
   },
   {
-    title: 'Retail & Lifestyle',
-    desc: 'Scroll-stopping product content that drives conversions.',
+    id: 'fashion',
+    title: 'Fashion & Retail Content',
+    service: 'Fashion & Retail Content',
+    desc: 'Scroll-stopping model and product content that drives fashion sales.',
     tag: 'Clothing & Retail',
     image: '/images/fashion.jpg',
+    deliverables: [
+      'Seasonal Lookbook Reels',
+      'Product Styling & New Drop Videos',
+      'Behind-the-Scenes Production Shoots',
+      'E-commerce Creative Assets',
+    ],
+    strategy:
+      'We turn your new arrivals into cinematic lookbooks and aesthetic reels, connecting garment details with lifestyle storytelling to boost order conversions.',
+    businessType: 'Clothing Brand',
   },
   {
-    title: 'Startups & Personal Brands',
-    desc: 'Positioning-led content that builds authority fast.',
+    id: 'creator',
+    title: 'Personal Brand / Creator Content',
+    service: 'Personal Brand / Creator Content',
+    desc: 'Authority-building video production for founders, leaders, and creators.',
     tag: 'Founders & Creators',
     image: '/images/video_production.jpg',
+    deliverables: [
+      'Studio & On-Location Shoots',
+      'Podcast & Talking-Head Reels',
+      'Signature Carousel & Story Designs',
+      'Thought-Leadership Content Strategy',
+    ],
+    strategy:
+      'People connect with leaders, not logos. We script, film, and edit crisp talking-head reels and behind-the-scenes content that position you as an industry authority.',
+    businessType: 'Personal Brand',
   },
 ]
 
